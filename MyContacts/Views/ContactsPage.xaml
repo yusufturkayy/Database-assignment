@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyContacts.Views.ContactsPage"
+             Title="Contacts">
+    <Grid RowDefinitions="*, Auto">
+        <ListView x:Name="ContactsList" 
+                  Grid.Row="0"
+                  VerticalOptions="Fill"
+                  HorizontalOptions="Fill"
+                  RowHeight="60"
+                  ItemSelected="ContactsList_ItemSelected"
+                  SeparatorColor="Silver" 
+                  SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding NameSurname}" 
+                                   TextColor="Black"
+                                   FontSize="16"/>
+                            <Label Text="{Binding PhoneNumber}" 
+                                   TextColor="Blue"
+                                   FontSize="14"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="1"
+                x:Name="AddContactButton" 
+                Text="Add Contact" 
+                Clicked="AddContactButton_Clicked"
+                Margin="10"/>
+    </Grid>
+</ContentPage>
